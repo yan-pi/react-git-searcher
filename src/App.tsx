@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom";
 import GlobalStyles from "./utils/GlobalStyles";
 
 function App() {
@@ -5,6 +6,7 @@ function App() {
     <>
       <GlobalStyles />
       <h1>Github Searcher</h1>
+      <Outlet />
     </>
   );
 }
