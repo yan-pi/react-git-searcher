@@ -15,7 +15,6 @@ const GlobalStyles = createGlobalStyle`
     font-family: Arial, sans-serif; /* ou a fonte que você preferir */
     background-color: #141a1f; /* substitua pela cor desejada */
   }
-
   
 `;
 
