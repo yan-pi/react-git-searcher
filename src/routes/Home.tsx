@@ -8,13 +8,13 @@ function Home() {
 
   const [user, setUser] = useState< UserProps | null >(null) 
 
-  const loadUser = async (userName: string) => {
-    const axios = require('axios')
-    const response = await axios.get(`https://api.github.com/users/${userName}`)
+  const loadUser = async (userNames: string[]) => {
+    const response = await axios.get(`https://api.github.com/users/${userNames}`)
     const data = await response.data
     setUser(data)
     console.log(data)
   }
+  
 
   return (
     <div>
