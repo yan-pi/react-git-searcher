@@ -12,9 +12,13 @@ const GlobalStyles = createGlobalStyle`
   /* Estilo do body */
   body {
     margin: 0;
-    padding: 0;
+    padding: 2rem;
     font-family: Arial, sans-serif; /* ou a fonte que você preferir */
     background-color: #141a1f; /* substitua pela cor desejada */
+  }
+
+  a {
+    text-decoration: none;
   }
   
 `;
