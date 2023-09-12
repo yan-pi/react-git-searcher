@@ -1,8 +1,7 @@
 import { UserProps } from "../types/user"
 import Search from "../components/Search"
 import { useState } from 'react'
-import axios from "axios"
-
+import axios from "axios" 
 
 function Home() {
 
@@ -14,11 +13,9 @@ function Home() {
     setUser(data)
     console.log(data)
   }
-  
-
   return (
     <div>
-      <Search loadUser = { loadUser} />
+      <Search loadUser = { loadUser } />
     </div>
   )
 }
