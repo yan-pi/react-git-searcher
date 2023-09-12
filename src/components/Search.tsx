@@ -13,8 +13,12 @@ function Search(loadUser: SearchProps) {
       <h2>Busque por um usuario:</h2>
       <p>Conheça seus melhores repositórios</p>
       <div>
-        <input onChange={(e) => setUserName(e.target.value)} type="text" placeholder="digite o nome do usuario" />
-        <button onClick={() => loadUser(userName)} >
+        <input
+          onChange={(e) => setUserName(e.target.value)}
+          type="text"
+          placeholder="digite o nome do usuario"
+        />
+        <button onClick={() => loadUser(userName)}>
           <BsSearch />
         </button>
       </div>
