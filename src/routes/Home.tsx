@@ -10,8 +10,41 @@ function Home() {
     setUser(null);
     const res = await axios.get(`https://api.github.com/users/${userName}`);
     const data = await res.data;
-    console.log(data);
-  };
+    console.log("api request: " + data);
+    const [
+      avatar_url,
+      primaryName,
+      bio,
+      publicRepos,
+      followers,
+      following,
+      company,
+      location,
+      email,
+      blog,
+      twitter_username,
+      created_at,
+      updated_at,
+    ] = data;
+
+    const userData: UserProps ={
+      avatar_url,
+      primaryName,
+      bio,
+      publicRepos,
+      followers,
+      following,
+      company,
+      location,
+      email,
+      blog,
+      twitter_username,
+      created_at,
+      updated_at,
+    };
+    setUser(userData);
+    
+    }
 
   return (
     <div>
