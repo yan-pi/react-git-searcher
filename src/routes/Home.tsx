@@ -6,42 +6,23 @@ import axios from "axios";
 
 function Home() {
   const [user, setUser] = useState<UserProps | null>(null);
+
   const loadUser = async function (userName: string) {
     setUser(null);
     const res = await axios.get(`https://api.github.com/users/${userName}`);
     const data = await res.data;
-    console.log("api request: " + data);
-    const [
-      avatar_url,
-      primaryName,
-      bio,
-      publicRepos,
-      followers,
-      following,
-      company,
-      location,
-      email,
-      blog,
-      twitter_username,
-      created_at,
-      updated_at,
-    ] = data;
+    console.log(data);
+    
+    const { avatar_url, login, location, followers, following } = data;
 
     const userData: UserProps ={
       avatar_url,
-      primaryName,
-      bio,
-      publicRepos,
+      login,
+      location,
       followers,
       following,
-      company,
-      location,
-      email,
-      blog,
-      twitter_username,
-      created_at,
-      updated_at,
     };
+    
     setUser(userData);
     
     }
@@ -49,6 +30,8 @@ function Home() {
   return (
     <div>
       <Search loadUser={loadUser} />
+      
+      {user && <p>{user.login}</p> }
     </div>
   );
 }
