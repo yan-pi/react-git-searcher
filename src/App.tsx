@@ -1,11 +1,21 @@
 import { Outlet } from "react-router-dom";
 import GlobalStyles from "./utils/GlobalStyles";
+import styled from "styled-components";
 
 function App() {
+
+  const Title = styled.h1`
+  align-items: center;
+  text-align: center;
+  display: flex;
+  margin: 20px;
+  justify-content: center;
+  `
+
   return (
     <>
       <GlobalStyles />
-      <h1>Github Searcher</h1>
+      <Title>Github Searcher</Title>
       <Outlet />
     </>
   );
