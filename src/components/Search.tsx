@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { useState } from "react";
+import { useState, KeyboardEvent } from "react";
 import { BsSearch } from "react-icons/bs";
 import styled from "styled-components";
 
-
+//types
 type SearchProps = {
   loadUser: (userName: string) => Promise<void>;
 };
@@ -17,7 +17,7 @@ const SearchContainer = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 1.5rem;
+  margin: 15px 450px;
 
   h2 {
     color: #ffffff;
@@ -48,7 +48,14 @@ const InputContainer = styled.div`
 
 function Search({ loadUser }: SearchProps) {
   const [userName, setUserName] = useState("");
+  
+  const handleKeyDown = (e: KeyboardEvent) => {
+    if (e.key === "Enter") {
+      loadUser(userName);
+    }
+  }
 
+  
   return (
     <SearchContainer>
       <h2>Busque por um usuário:</h2>
@@ -57,7 +64,9 @@ function Search({ loadUser }: SearchProps) {
         <input
           type="text"
           onChange={(e) => setUserName(e.target.value)}
+          onKeyDown={handleKeyDown}
           placeholder="Digite o nome do usuário"
+
         />
         <button onClick={() => loadUser(userName)}>
           <BsSearch />
