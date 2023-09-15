@@ -48,14 +48,13 @@ const InputContainer = styled.div`
 
 function Search({ loadUser }: SearchProps) {
   const [userName, setUserName] = useState("");
-  
+
   const handleKeyDown = (e: KeyboardEvent) => {
     if (e.key === "Enter") {
       loadUser(userName);
     }
-  }
+  };
 
-  
   return (
     <SearchContainer>
       <h2>Busque por um usuário:</h2>
@@ -66,7 +65,6 @@ function Search({ loadUser }: SearchProps) {
           onChange={(e) => setUserName(e.target.value)}
           onKeyDown={handleKeyDown}
           placeholder="Digite o nome do usuário"
-
         />
         <button onClick={() => loadUser(userName)}>
           <BsSearch />

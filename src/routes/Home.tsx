@@ -31,7 +31,7 @@ function Home() {
     color: #fff;
     text-align: center;
   `;
-  
+
   return (
     <div>
       <Search loadUser={loadUser} />

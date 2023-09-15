@@ -3,14 +3,13 @@ import GlobalStyles from "./utils/GlobalStyles";
 import styled from "styled-components";
 
 function App() {
-
   const Title = styled.h1`
-  align-items: center;
-  text-align: center;
-  display: flex;
-  margin: 20px;
-  justify-content: center;
-  `
+    align-items: center;
+    text-align: center;
+    display: flex;
+    margin: 20px;
+    justify-content: center;
+  `;
 
   return (
     <>
