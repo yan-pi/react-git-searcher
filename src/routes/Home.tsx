@@ -2,8 +2,9 @@
 import { UserProps } from "../types/user";
 import { useState } from "react";
 import Search from "../components/Search";
+import User from "../components/User";
+
 import axios from "axios";
-import styled from "styled-components";
 
 function Home() {
   const [user, setUser] = useState<UserProps | null>(null);
@@ -27,16 +28,11 @@ function Home() {
     setUser(userData);
   };
 
-  const UserName = styled.p`
-    color: #fff;
-    text-align: center;
-  `;
-
   return (
     <div>
       <Search loadUser={loadUser} />
 
-      {user && <UserName>{user.login}</UserName>}
+      {user && <User {...user} />}
     </div>
   );
 }
