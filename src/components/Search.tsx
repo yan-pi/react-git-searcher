@@ -17,7 +17,7 @@ const SearchContainer = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  margin: 15px 450px;
+  margin: 15px;
 
   h2 {
     color: #ffffff;
@@ -32,6 +32,10 @@ const InputContainer = styled.div`
   display: flex;
   gap: 0.5rem;
 
+  input {
+    background-color: #141a1f;
+  }
+
   input,
   button {
     padding: 0.6rem;
@@ -41,7 +45,8 @@ const InputContainer = styled.div`
   }
 
   button {
-    background-color: #171f25;
+    background-color: #4a89ff;
+    color: #132850;
     cursor: pointer;
   }
 `;
