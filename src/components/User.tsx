@@ -4,7 +4,7 @@ import { MdLocationPin } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 const UserContainer = styled.div`
-  background-color: #2b3566;
+  background-color: #2c3a46;
   padding: 2rem;
   border-radius: 1rem;
   display: flex;
@@ -17,7 +17,7 @@ const UserContainer = styled.div`
 const UserImage = styled.img`
   width: 140px;
   height: 140px;
-  border: 4px solid #644aff;
+  border: 4px solid #4a89ff;
   border-radius: 50%;
 `;
 
@@ -28,7 +28,7 @@ const LocationContainer = styled.div`
 `;
 
 const LocationIcon = styled(MdLocationPin)`
-  fill: #4ed8c7;
+  fill: #4a89ff;
   font-size: 1.5rem;
 `;
 
@@ -48,19 +48,20 @@ const StatsItem = styled.div`
   gap: 0.4rem;
 
   &:first-child {
-    border-right: 1px solid #9da5d1;
+    border-right: 1px solid #4a89ff;
   }
 `;
 
 const StatsNumber = styled.p`
-  background-color: #4ed8c7;
+  background-color: #4a89ff;
   padding: 0.2rem 0.4rem;
   border-radius: 3px;
 `;
 
 const LinkButton = styled(Link)`
   text-align: center;
-  background-color: #644aff;
+  color: #fff;
+  background-color: #4a89ff;
   padding: 1rem;
   border-radius: 5px;
   opacity: 0.8;
@@ -83,8 +84,8 @@ function User({
       <UserImage src={avatar_url} alt={login} />
       <h1>{login}</h1>
       <p>
-        <LocationIcon />
         <LocationContainer>
+          <LocationIcon />
           <LocationText>{location}</LocationText>
         </LocationContainer>
       </p>
@@ -98,6 +99,8 @@ function User({
           <StatsNumber>{following}</StatsNumber>
         </StatsItem>
       </StatsContainer>
+
+      {/* não sei se vai funcionar o link  */}
       <LinkButton to={`/repos/${login}`}>Ver melhores projetos</LinkButton>
     </UserContainer>
   );
