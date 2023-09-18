@@ -13,13 +13,13 @@ function Home() {
 
   const loadUser = async function (userName: string) {
     setUser(null);
+
     try {
       const res = await axios.get(`https://api.github.com/users/${userName}`);
       const data = await res.data;
       console.log(data);
 
       const { avatar_url, login, location, followers, following } = data;
-
       const userData: UserProps = {
         avatar_url,
         login,
@@ -30,7 +30,7 @@ function Home() {
 
       setUser(userData);
     } catch (error) {
-      toast.error("Usuário não encontrado");
+      toast.error("Usuário não encontrado", {});
     }
   };
 
@@ -38,7 +38,18 @@ function Home() {
     <div>
       <Search loadUser={loadUser} />
       {user && <User {...user} />}
-      <ToastContainer />
+      <ToastContainer
+        position="bottom-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </div>
   );
 }
