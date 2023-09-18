@@ -3,12 +3,11 @@ import { useState, KeyboardEvent } from "react";
 import { BsSearch } from "react-icons/bs";
 import styled from "styled-components";
 
-//types
 type SearchProps = {
   loadUser: (userName: string) => Promise<void>;
 };
 
-// Defina estilos para o seu componente Search usando styled-components
+
 const SearchContainer = styled.div`
   background-color: #2c3a46;
   padding: 2rem;

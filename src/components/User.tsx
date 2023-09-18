@@ -100,7 +100,6 @@ function User({
         </StatsItem>
       </StatsContainer>
 
-      {/* não sei se vai funcionar o link  */}
       <LinkButton to={`/repos/${login}`}>Ver melhores projetos</LinkButton>
     </UserContainer>
   );
