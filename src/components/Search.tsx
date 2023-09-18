@@ -7,7 +7,6 @@ type SearchProps = {
   loadUser: (userName: string) => Promise<void>;
 };
 
-
 const SearchContainer = styled.div`
   background-color: #2c3a46;
   padding: 2rem;
