@@ -1,3 +1,4 @@
+import "react-toastify/dist/ReactToastify.css"; //importando o css do toastify
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
@@ -9,7 +10,6 @@ const GlobalStyles = createGlobalStyle`
   }
 
   /* Estilos Globais */
-
   html {
   font-family: sans-serif;
   line-height: 1.15;
@@ -38,8 +38,6 @@ const GlobalStyles = createGlobalStyle`
   a {
     text-decoration: none;
   }
-  
-
 `;
 
 export default GlobalStyles;
