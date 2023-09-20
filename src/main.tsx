@@ -1,15 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
-import Home from "./routes/Home.tsx";
-import Repos from "./routes/Repos.tsx";
 
 import {
   createBrowserRouter,
   RouterProvider,
-  // Route,
-  // Link,
 } from "react-router-dom";
+
+import Home from "./routes/Home.tsx";
+import Repos from "./routes/Repos.tsx";
 
 const router = createBrowserRouter([
   {
@@ -21,7 +20,7 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/repos/:userName",
+        path: "/repos/:username",
         element: <Repos />,
       },
     ],

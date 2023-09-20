@@ -21,7 +21,8 @@ function Home() {
       const res = await axios.get(`https://api.github.com/users/${userName}`);
       const data = await res.data;
       console.log(data);
-
+      
+      setIsLoading(false);
       const { avatar_url, login, location, followers, following } = data;
       const userData: UserProps = {
         avatar_url,
@@ -30,7 +31,6 @@ function Home() {
         followers,
         following,
       };
-      setIsLoading(false);
       setUser(userData);
     } catch (error) {
       toast.error("Usuário não encontrado", {});
