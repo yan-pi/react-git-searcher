@@ -30,7 +30,7 @@ function Home() {
         followers,
         following,
       };
-
+      setIsLoading(false);
       setUser(userData);
     } catch (error) {
       toast.error("Usuário não encontrado", {});
@@ -41,6 +41,7 @@ function Home() {
     <div>
       <Search loadUser={loadUser} />
       {user && <User {...user} />}
+      {isLoading && <Loader />}
       <ToastContainer
         position="bottom-center"
         autoClose={5000}
