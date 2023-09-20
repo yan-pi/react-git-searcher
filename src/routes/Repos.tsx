@@ -1,13 +1,15 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { RepoProps } from "../types/repo";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 import styled from "styled-components";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import BackBtn from "../components/BackBtn";
 import Loader from "../components/Loader";
+import Repo from "../components/Reposit";
 
 function Repos() {
   const { username } = useParams();
@@ -43,26 +45,20 @@ function Repos() {
     };
   }, []);
 
-  if (!repos || isLoading) return <Loader />;
+  if (!repos && isLoading) return <Loader />;
 
   return (
     <div>
-      {repos.map((repo: RepoProps) => (
-        <div key={repo.name}>
-          <h3>{repo.name}</h3>
-          <p>{repo.language}</p>
-          <div>
-            <p>{repo.stargazers_count}</p>
-            <p>{repo.forks_count}</p>
-          </div>
-          <div>
-            <p>{repo.description}</p>
-          </div>
-          <a href={repo.html_url} target="_blank">
-            <span>Ver código</span>
-          </a>
+      <BackBtn />
+      <h2>Explore os repositórios do usuário: {username}</h2>
+      {repos && repos.length === 0 && <p>Não há repositórios.</p>}
+      {repos && repos.length > 0 && (
+        <div>
+          {repos.map((repo: RepoProps) => (
+            <Repo key={repo.name} {...repo} />
+          ))}
         </div>
-      ))}
+      )}
     </div>
   );
 }
