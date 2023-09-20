@@ -22,7 +22,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/repos/:userName",
-        element: <Repos/>,
+        element: <Repos />,
       },
     ],
   },
