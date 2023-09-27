@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 
 import styled from "styled-components";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 import BackBtn from "../components/BackBtn";
 import Loader from "../components/Loader";
@@ -51,7 +52,7 @@ function Repos() {
     if (username) {
       loadrepos(username);
     }
-  });
+  }, []);
 
   if (!repos && isLoading) return <Loader />;
 
