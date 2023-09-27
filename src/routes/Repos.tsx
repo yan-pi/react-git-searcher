@@ -45,7 +45,6 @@ function Repos() {
       );
 
       orderedRepos = orderedRepos.slice(0, 5);
-
       setRepos(orderedRepos);
     };
 
