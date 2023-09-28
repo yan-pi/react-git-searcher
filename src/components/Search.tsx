@@ -1,53 +1,13 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState, KeyboardEvent } from "react";
 import { BsSearch } from "react-icons/bs";
-import styled from "styled-components";
+
+import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/button"
 
 type SearchProps = {
   loadUser: (userName: string) => Promise<void>;
 };
-
-const SearchContainer = styled.div`
-  background-color: #2c3a46;
-  padding: 2rem;
-  border-radius: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  margin: 15px;
-
-  h2 {
-    color: #ffffff;
-  }
-`;
-
-const Description = styled.p`
-  color: #9da5d1;
-`;
-
-const InputContainer = styled.div`
-  display: flex;
-  gap: 0.5rem;
-
-  input {
-    background-color: #141a1f;
-  }
-
-  input,
-  button {
-    padding: 0.6rem;
-    border-radius: 3px;
-    border: none;
-    color: #80a8c9;
-  }
-
-  button {
-    background-color: #4a89ff;
-    color: #132850;
-    cursor: pointer;
-  }
-`;
 
 function Search({ loadUser }: SearchProps) {
   const [userName, setUserName] = useState("");
@@ -59,21 +19,25 @@ function Search({ loadUser }: SearchProps) {
   };
 
   return (
-    <SearchContainer>
-      <h2>Busque por um usuário:</h2>
-      <Description>Conheça seus melhores repositórios</Description>
-      <InputContainer>
-        <input
-          type="text"
-          onChange={(e) => setUserName(e.target.value)}
-          onKeyDown={handleKeyDown}
-          placeholder="Digite o nome do usuário"
-        />
-        <button onClick={() => loadUser(userName)}>
-          <BsSearch />
-        </button>
-      </InputContainer>
-    </SearchContainer>
+    <div className=" p-8 rounded-lg flex flex-col items-center gap-4 m-4">
+    <h2 className="text-black">Busque por um usuário:</h2>
+    <p className="text-gray-400">Conheça seus melhores repositórios</p>
+    <div className="flex gap-2">
+      <Input
+        type="text"
+        onChange={(e) => setUserName(e.target.value)}
+        onKeyDown={handleKeyDown}
+        placeholder="Digite o nome do usuário"
+        className="bg-gray-800 p-2 rounded border border-gray-600 text-gray-300"
+      />
+      <Button variant={"primary"}
+        onClick={() => loadUser(userName)}
+        className="bg-blue-500 text-blue-900 p-2 rounded cursor-pointer"
+      >
+        <BsSearch />
+      </Button>
+    </div>
+  </div>
   );
 }
 
