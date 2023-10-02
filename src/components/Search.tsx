@@ -19,7 +19,7 @@ function Search({ loadUser }: SearchProps) {
   };
 
   return (
-    <div className="container flex flex-row justify-center items-center mt-56 mb-4">
+    <div className="container flex flex-row justify-center items-center mt-10 mb-4">
       <div className="rid w-full max-w-sm items-center gap-1.5">
         <Label htmlFor="email">UserName</Label>
         <div className="flex  gap-2 flex-row">
