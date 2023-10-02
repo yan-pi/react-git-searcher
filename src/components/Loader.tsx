@@ -1,33 +1,35 @@
-import styled from "styled-components";
+import { Skeleton } from "@/components/ui/skeleton";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 function Loader() {
-  const LoaderContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Adjust the height as needed */
-  `;
-  const Loader = styled.div`
-    border: 16px solid #f3f3f3; /* Light gray border */
-    border-top: 16px solid #3498db; /* Blue border on top */
-    border-radius: 50%;
-    width: 84px;
-    height: 84px;
-    animation: spin 2s linear infinite;
-
-    @keyframes spin {
-      0% {
-        transform: rotate(0deg);
-      }
-      100% {
-        transform: rotate(360deg);
-      }
-    }
-  `;
   return (
-    <LoaderContainer>
-      <Loader />
-    </LoaderContainer>
+    <div className="flex justify-center items-center">
+      <Card className="w-[350px]">
+        <CardHeader className="flex">
+          <Skeleton className="w-[100px] h-[100px] rounded-full" />
+          <Skeleton className="w-[100px] h-[20px] rounded-full" />
+          <Skeleton className="w-[200px] h-[20px] rounded-full" />
+        </CardHeader>
+        <CardContent className="flex flex-col">
+          <CardTitle className="font-mono text-2xl">
+          </CardTitle>
+          <CardDescription className="flex flex-auto gap-2">
+            <Skeleton className="w-[100px] h-[20px] rounded-full" />
+            <Skeleton className="w-[100px] h-[20px] rounded-full" />
+          </CardDescription>
+        </CardContent>
+        <CardFooter className="flex">
+          <Skeleton className="w-[240px] h-[42px] rounded-full" />
+        </CardFooter>
+      </Card>
+    </div>
   );
 }
 
