@@ -6,7 +6,7 @@ function BackBtn() {
 
   return (
     <>
-      <Button variant={"secondary"} type="button" onClick={() => navigate(-1)}>
+      <Button className="m-4" variant={"secondary"} type="button" onClick={() => navigate(-1)}>
         voltar
       </Button>
     </>
