@@ -4,7 +4,7 @@ function App() {
   return (
     <>
       <div className="flex justify-center items-center">
-        <h1 className="font-bold m-4 text-2xl jusi">Github Searcher</h1>
+        <h1 className="font-bold m-4 text-2xl">Github Searcher</h1>
       </div>
       <Outlet />
     </>
