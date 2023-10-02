@@ -1,55 +1,7 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { RepoProps } from "../types/repo";
-import styled from "styled-components";
 import { AiOutlineStar, AiOutlineFork } from "react-icons/ai";
 import { BsCodeSlash } from "react-icons/bs";
 import { RiGitRepositoryLine } from "react-icons/ri";
-
-
-const RepoContainer = styled.div`
-  background-color: #0e1129;
-  padding: 2rem;
-  border-radius: 10px;
-  border: 2px solid #9da5d1;
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  gap: 1rem;
-  flex: 1 0 50%;
-`;
-
-const StatsContainer = styled.div`
-  display: flex;
-  gap: 1rem;
-`;
-
-const StatsItem = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.4rem;
-  color: #fff;
-  border-radius: 3px;
-  border: 1px solid #9da5d1;
-  padding-right: 0.4rem;
-`;
-
-const StarIcon = styled(AiOutlineStar)`
-  background-color: #4ed8c7;
-  padding: 0.2rem 0.4rem;
-  border-radius: 3px;
-  font-size: 2rem;
-`;
-
-const RepoButton = styled.a`
-  display: flex;
-  align-items: center;
-  padding: 0.5rem 1rem;
-  color: #9da5d1;
-  background-color: #2b3566;
-  border-radius: 5px;
-  gap: 0.5rem;
-`;
 
 function Repo({
   name,
@@ -59,27 +11,34 @@ function Repo({
   stargazers_count,
 }: RepoProps) {
   return (
-    <RepoContainer>
-      <h3>{name}</h3>
-      <p>
-        <BsCodeSlash /> {language}
+    <div className="bg-blue-900 p-8 rounded-lg border-2 border-blue-300 flex flex-col items-start gap-4 flex-1">
+      <h3 className="text-white">{name}</h3>
+      <p className="flex items-center text-white">
+        <BsCodeSlash className="mr-2" />
+        {language}
       </p>
-      <StatsContainer>
-        <StatsItem>
-          <StarIcon />
+      <div className="flex gap-4">
+        <div className="flex items-center justify-center gap-2 text-white border border-blue-300 rounded-md pr-4">
+          <span className="bg-green-500 p-1 rounded-md">
+            <AiOutlineStar className="text-white text-2xl" />
+          </span>
           <span>{stargazers_count}</span>
-        </StatsItem>
-        <StatsItem>
-          <AiOutlineFork />
+        </div>
+        <div className="flex items-center justify-center gap-2 text-white border border-blue-300 rounded-md">
+          <AiOutlineFork className="text-white text-2xl" />
           <span>{forks_count}</span>
-        </StatsItem>
-      </StatsContainer>
-      <RepoButton href={html_url} target="_blank">
+        </div>
+      </div>
+      <a
+        href={html_url}
+        target="_blank"
+        className="flex items-center py-2 px-4 text-white bg-blue-700 rounded-md hover:bg-blue-800"
+      >
         <span>Ver código</span>
-        <RiGitRepositoryLine />
-      </RepoButton>
-    </RepoContainer>
+        <RiGitRepositoryLine className="ml-2 text-white text-xl" />
+      </a>
+    </div>
   );
 }
- 
+
 export default Repo;
