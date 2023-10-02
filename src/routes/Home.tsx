@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { UserProps } from "../types/user";
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 import Search from "../components/Search";
 import User from "../components/User";
 import Loader from "../components/Loader";
-
+import 'react-toastify/dist/ReactToastify.css';
 
 import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
@@ -13,6 +13,7 @@ import axios from "axios";
 function Home() {
   const [user, setUser] = useState<UserProps | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const Data = useContext(userData);
 
   const loadUser = async function (userName: string) {
     setUser(null);
@@ -53,7 +54,7 @@ function Home() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="dark"
+        theme="light"
       />
     </div>
   );

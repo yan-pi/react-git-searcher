@@ -2,10 +2,10 @@
 import { RepoProps } from "../types/repo";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-
 import styled from "styled-components";
 import axios from "axios";
 
+import User from "../components/User";
 import BackBtn from "../components/BackBtn";
 import Loader from "../components/Loader";
 import Repo from "../components/Repo";
@@ -44,7 +44,7 @@ function Repos() {
         (a: RepoProps, b: RepoProps) => b.stargazers_count - a.stargazers_count
       );
 
-      orderedRepos = orderedRepos.slice(0, 5);
+      orderedRepos = orderedRepos.slice(0, 10);
       setRepos(orderedRepos);
     };
 
@@ -58,7 +58,11 @@ function Repos() {
   return (
     <div>
       <BackBtn />
-      <Text>Explore os repositórios do usuário: {username}</Text>
+      <User login={username},
+      avatar_url={ avatar_url },
+      followers={0},
+      following={0}
+      />
       {repos && repos.length === 0 && <p>Não há repositórios.</p>}
       {repos && repos.length > 0 && (
         <RepoContainer>
