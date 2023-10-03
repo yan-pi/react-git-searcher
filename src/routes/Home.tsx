@@ -13,7 +13,6 @@ import axios from "axios";
 function Home() {
   const [user, setUser] = useState<UserProps | null>(null);
   const [isLoading, setIsLoading] = useState(false);
-  const Data = useContext(userData);
 
   const loadUser = async function (userName: string) {
     setUser(null);

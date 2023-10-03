@@ -2,28 +2,14 @@
 import { RepoProps } from "../types/repo";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import styled from "styled-components";
+
 import axios from "axios";
 
-import User from "../components/User";
+
 import BackBtn from "../components/BackBtn";
 import Loader from "../components/Loader";
 import Repo from "../components/Repo";
 
-const Text = styled.h2`
-  font-size: 1.2rem;
-  text-align: center;
-  margin-bottom: 2rem;
-`
-const RepoContainer = styled.div`
-  background-color: #2b3566;
-  padding: 2rem;
-  border-radius: 1rem;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1.2rem;
-`
 function Repos() {
   const { username } = useParams();
   const [repos, setRepos] = useState<RepoProps[] | [] | null>(null);
@@ -58,18 +44,13 @@ function Repos() {
   return (
     <div>
       <BackBtn />
-      <User login={username},
-      avatar_url={ avatar_url },
-      followers={0},
-      following={0}
-      />
       {repos && repos.length === 0 && <p>Não há repositórios.</p>}
       {repos && repos.length > 0 && (
-        <RepoContainer>
+        <div>
           {repos.map((repo: RepoProps) => (
             <Repo key={repo.name} {...repo} />
           ))}
-        </RepoContainer>
+        </div>
       )}
     </div>
   );
