@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { UserProps } from "../types/user";
-import { useContext, useState } from "react";
+import { useState } from "react";
 
 import Search from "../components/Search";
 import User from "../components/User";
