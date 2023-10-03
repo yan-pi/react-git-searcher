@@ -1,53 +1,13 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState, KeyboardEvent } from "react";
 import { BsSearch } from "react-icons/bs";
-import styled from "styled-components";
+
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
 
 type SearchProps = {
   loadUser: (userName: string) => Promise<void>;
 };
-
-const SearchContainer = styled.div`
-  background-color: #2c3a46;
-  padding: 2rem;
-  border-radius: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  margin: 15px;
-
-  h2 {
-    color: #ffffff;
-  }
-`;
-
-const Description = styled.p`
-  color: #9da5d1;
-`;
-
-const InputContainer = styled.div`
-  display: flex;
-  gap: 0.5rem;
-
-  input {
-    background-color: #141a1f;
-  }
-
-  input,
-  button {
-    padding: 0.6rem;
-    border-radius: 3px;
-    border: none;
-    color: #80a8c9;
-  }
-
-  button {
-    background-color: #4a89ff;
-    color: #132850;
-    cursor: pointer;
-  }
-`;
 
 function Search({ loadUser }: SearchProps) {
   const [userName, setUserName] = useState("");
@@ -59,21 +19,26 @@ function Search({ loadUser }: SearchProps) {
   };
 
   return (
-    <SearchContainer>
-      <h2>Busque por um usuário:</h2>
-      <Description>Conheça seus melhores repositórios</Description>
-      <InputContainer>
-        <input
-          type="text"
-          onChange={(e) => setUserName(e.target.value)}
-          onKeyDown={handleKeyDown}
-          placeholder="Digite o nome do usuário"
-        />
-        <button onClick={() => loadUser(userName)}>
-          <BsSearch />
-        </button>
-      </InputContainer>
-    </SearchContainer>
+    <div className="container flex flex-row justify-center items-center mt-10 mb-4">
+      <div className="rid w-full max-w-sm items-center gap-1.5">
+        <Label htmlFor="email">UserName</Label>
+        <div className="flex  gap-2 flex-row">
+          <Input
+            type="text"
+            onChange={(e) => setUserName(e.target.value)}
+            onKeyDown={handleKeyDown}
+            placeholder="Search for a user"
+            className="w-full"
+          />
+          <Button
+            onClick={() => loadUser(userName)}
+            className="bg-gray-200 hover:bg-gray-300"
+          >
+            <BsSearch className="text-slate-950" />
+          </Button>
+        </div>
+      </div>
+    </div>
   );
 }
 
