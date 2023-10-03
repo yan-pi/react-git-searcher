@@ -5,7 +5,7 @@ import { useState } from "react";
 import Search from "../components/Search";
 import User from "../components/User";
 import Loader from "../components/Loader";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
 import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
@@ -22,7 +22,7 @@ function Home() {
       const res = await axios.get(`https://api.github.com/users/${userName}`);
       const data = await res.data;
       console.log(data);
-      
+
       setIsLoading(false);
       const { avatar_url, login, location, followers, following } = data;
       const userData: UserProps = {

@@ -5,7 +5,6 @@ import { useParams } from "react-router-dom";
 
 import axios from "axios";
 
-
 import BackBtn from "../components/BackBtn";
 import Loader from "../components/Loader";
 import Repo from "../components/Repo";
@@ -19,7 +18,7 @@ function Repos() {
     const loadrepos = async function (username: string) {
       setIsLoading(true);
       const res = await axios.get(
-        `https://api.github.com/users/${username}/repos`
+        `https://api.github.com/users/${username}/repos`,
       );
       const data = await res.data;
       console.log(data); //apenas parar ver o que está vindo da API
@@ -27,7 +26,7 @@ function Repos() {
       setIsLoading(false);
 
       let orderedRepos = data.sort(
-        (a: RepoProps, b: RepoProps) => b.stargazers_count - a.stargazers_count
+        (a: RepoProps, b: RepoProps) => b.stargazers_count - a.stargazers_count,
       );
 
       orderedRepos = orderedRepos.slice(0, 10);

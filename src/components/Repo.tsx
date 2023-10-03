@@ -42,11 +42,7 @@ function Repo({
           </div>
         </CardContent>
         <CardFooter className="flex">
-          <a
-            href={html_url}
-            target="_blank"
-            className="flex "
-          >
+          <a href={html_url} target="_blank" className="flex ">
             <Button>
               Ver código
               <RiGitRepositoryLine className="ml-2 text-white text-xl" />

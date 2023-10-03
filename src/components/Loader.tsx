@@ -18,8 +18,7 @@ function Loader() {
           <Skeleton className="w-[200px] h-[20px] rounded-full" />
         </CardHeader>
         <CardContent className="flex flex-col">
-          <CardTitle className="font-mono text-2xl">
-          </CardTitle>
+          <CardTitle className="font-mono text-2xl"></CardTitle>
           <CardDescription className="flex flex-auto gap-2">
             <Skeleton className="w-[100px] h-[20px] rounded-full" />
             <Skeleton className="w-[100px] h-[20px] rounded-full" />
